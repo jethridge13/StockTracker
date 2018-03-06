@@ -6,12 +6,38 @@ class Title extends Component {
   
   render() {
     return (
-      <div className={this.props.className}>
-        {this.props.title}
+      <div>
+        <span className={this.props.className}>
+          {this.props.title}
+        </span>
+        <button id="moveCard">Move</button>
       </div>
     );
   }
 
+}
+
+class Graph extends Component {
+
+  render() {
+    return (
+      <div className="graph"></div>
+    );
+  }
+}
+
+class CardControl extends Component {
+
+  render() {
+    /* TODO Button Functionality */
+    return (
+      <div className="cardControlPanel">
+        <button>Update</button>
+        <button>Enable Live Feed</button>
+        <button>Delete</button>
+      </div>
+    );
+  }
 }
 
 class Card extends Component {
@@ -21,6 +47,8 @@ class Card extends Component {
     return (
       <div className="cardBase">
         <Title className="title" title={title}/>
+        <Graph />
+        <CardControl />
       </div>
     );
   }
