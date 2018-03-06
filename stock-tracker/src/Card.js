@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './Card.css';
 
-class Title extends Component {
+class TitleBar extends Component {
   
   render() {
     return (
@@ -46,7 +46,7 @@ class Card extends Component {
     let title = 'Title';
     return (
       <div className="cardBase">
-        <Title className="title" title={title}/>
+        <TitleBar className="title" title={title}/>
         <Graph />
         <CardControl />
       </div>
