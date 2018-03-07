@@ -1,11 +1,12 @@
 /* line 1, ../scss/_Card.scss */
 button {
-  min-width: 40px;
+  min-width: 36px;
+  min-height: 36px;
   height: 85%;
   margin: 4px;
 }
 
-/* line 7, ../scss/_Card.scss */
+/* line 8, ../scss/_Card.scss */
 .cardBase {
   margin: 1px;
   padding: 1px;
@@ -15,18 +16,18 @@ button {
   min-width: 25%;
 }
 
-/* line 16, ../scss/_Card.scss */
+/* line 17, ../scss/_Card.scss */
 .cardControlPanel {
   border-top: 1px dotted black;
   min-height: 30px;
 }
 
-/* line 21, ../scss/_Card.scss */
+/* line 22, ../scss/_Card.scss */
 .graph {
   min-height: 250px;
 }
 
-/* line 25, ../scss/_Card.scss */
+/* line 26, ../scss/_Card.scss */
 .title {
   padding-top: 3px;
   text-align: center;
@@ -34,14 +35,14 @@ button {
   width: 100%;
 }
 
-/* line 32, ../scss/_Card.scss */
+/* line 33, ../scss/_Card.scss */
 #moveCard {
   float: right;
 }
 
 /* line 72, cardIcons/*.png */
-.cardIcons-sprite, .cardIcons-arrows, .cardIcons-delete, .cardIcons-documents, .cardIcons-reload {
-  background-image: url('../images/cardIcons-s107ddb4b5b.png');
+.cardIcons-sprite, .cardIcons-arrows, .cardIcons-delete, .cardIcons-documents, .cardIcons-refresh {
+  background-image: url('../images/cardIcons-sf70cd4ddd7.png');
   background-repeat: no-repeat;
 }
 
@@ -52,15 +53,15 @@ button {
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .cardIcons-delete {
-  background-position: 0 -128px;
+  background-position: 0 -32px;
 }
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .cardIcons-documents {
-  background-position: 0 -256px;
+  background-position: 0 -64px;
 }
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.cardIcons-reload {
-  background-position: 0 -384px;
+.cardIcons-refresh {
+  background-position: 0 -96px;
 }

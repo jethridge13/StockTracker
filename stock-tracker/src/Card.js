@@ -8,7 +8,7 @@ class TitleBar extends Component {
         <span className={this.props.className}>
           {this.props.title}
         </span>
-        <button id="moveCard">Move</button>
+        <button id="moveCard" className="cardIcons-arrows"></button>
       </div>
     );
   }
@@ -19,7 +19,9 @@ class Graph extends Component {
 
   render() {
     return (
-      <div className="graph"></div>
+      <div className="graph">
+        <canvas id={this.props.title}></canvas>
+      </div>
     );
   }
 }
@@ -30,9 +32,9 @@ class CardControl extends Component {
     /* TODO Button Functionality */
     return (
       <div className="cardControlPanel">
-        <button>Update</button>
-        <button>Enable Live Feed</button>
-        <button>Delete</button>
+        <button className="cardIcons-refresh"></button>
+        <button className="cardIcons-documents"></button>
+        <button className="cardIcons-delete"></button>
       </div>
     );
   }
@@ -45,7 +47,7 @@ class Card extends Component {
     return (
       <div className="cardBase">
         <TitleBar className="title" title={title}/>
-        <Graph />
+        <Graph title={title}/>
         <CardControl />
       </div>
     );
