@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
-import './Card.css';
 
 class TitleBar extends Component {
   
