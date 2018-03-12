@@ -1,5 +1,5 @@
 /* line 1, ../scss/_Card.scss */
-button {
+.cardControlPanel button, #moveCard {
   min-width: 36px;
   min-height: 36px;
   margin: 4px;
@@ -39,28 +39,42 @@ button {
   float: right;
 }
 
-/* line 72, cardIcons/*.png */
-.cardIcons-sprite, .cardIcons-arrows, .cardIcons-delete, .cardIcons-documents, .cardIcons-refresh {
-  background-image: url('../images/cardIcons-sf70cd4ddd7.png');
+/* line 1, ../scss/_AddCard.scss */
+.addCardBase {
+  margin: 1px;
+  border-radius: 7px;
+  background-color: #F0F0F0;
+  width: 128px;
+  height: 128px;
+}
+
+/* line 80, icons/*.png */
+.icons-sprite, .icons-arrows, .icons-delete, .icons-documents, .icons-plus, .icons-refresh {
+  background-image: url('../images/icons-sb5f1a26d50.png');
   background-repeat: no-repeat;
 }
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.cardIcons-arrows {
+.icons-arrows {
   background-position: 0 0;
 }
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.cardIcons-delete {
+.icons-delete {
   background-position: 0 -32px;
 }
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.cardIcons-documents {
+.icons-documents {
   background-position: 0 -64px;
 }
 
 /* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.cardIcons-refresh {
+.icons-plus {
   background-position: 0 -96px;
+}
+
+/* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-refresh {
+  background-position: 0 -224px;
 }
