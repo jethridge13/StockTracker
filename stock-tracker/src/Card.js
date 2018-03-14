@@ -9,7 +9,7 @@ class TitleBar extends Component {
 				<span className={this.props.className}>
 					{this.props.title}
 				</span>
-				<button id="moveCard" className="icons-arrows"></button>
+				<button className="moveCard icons-arrows"></button>
 			</div>
 		);
 	}
@@ -45,7 +45,7 @@ class CardControl extends Component {
 			<div className="cardControlPanel">
 				<button className="icons-refresh"></button>
 				<button className="icons-documents"></button>
-				<button className="icons-delete"></button>
+				<button className="deleteCard icons-delete" onClick={() => this.props.onDelete(this.props.cardId)}></button>
 			</div>
 		);
 	}
@@ -86,7 +86,7 @@ class Card extends Component {
 			<div className="cardBase">
 				<TitleBar className="title" title={title}/>
 				<Graph title={title} data={data}/>
-				<CardControl />
+				<CardControl cardId={this.props.cardId} onDelete={this.props.onDelete}/>
 			</div>
 		);
 	}

@@ -4,6 +4,10 @@
 	margin: 4px;
 }
 
+.moveCard, .deleteCard {
+	float: right;
+}
+
 .cardBase {
 	margin: 1px;
 	padding: 1px;
@@ -29,6 +33,3 @@
 	width: 100%;
 }
 
-#moveCard {
-	float: right;
-}

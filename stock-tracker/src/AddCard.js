@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card from './Card';
 
 class AddCardBase extends Component {
-	// https://stackoverflow.com/questions/36651583/dynamically-add-child-components-in-react
 
 	render() {
 		const classes = 'addCardBase icons-plus';
@@ -15,16 +14,33 @@ class AddCardBase extends Component {
 class AddCard extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
-		this.state.cards = [];
-		this.state.count = 0;
+		this.state = {
+			cards: [],
+			count: 0
+		};
+		this.addCard = this.addCard.bind(this);
+		this.deleteCard=this.deleteCard.bind(this);
 	}
 
 	addCard() {
-		this.setState(this.state.cards.concat([
-			{ id: this.state.count }
-		]));
-		this.state.count += 1;
+		this.setState((prevState, props) => {
+			return {
+				cards: [...prevState.cards, { id: prevState.count }],
+				count: prevState.count + 1,
+			}
+		});
+	}
+
+	deleteCard(id) {
+		this.setState((prevState, props) => {
+			const index = prevState.cards.findIndex(x => x.id == id);
+			const arr = prevState.cards.slice();
+			arr.splice(index, 1);
+			return {
+				cards: arr,
+				count: prevState.count,
+			}
+		});
 	}
 
 	render() {
@@ -32,10 +48,10 @@ class AddCard extends Component {
 			<div>
 				{
 					this.state.cards.map((item) => (
-						<Card key={item.id} onClick={this.addCard()}/>
+						<Card key={item.id} cardId={item.id} onDelete={this.deleteCard} />
 					))
 				}
-				<AddCardBase />
+				<AddCardBase onClick={this.addCard}/>
 			</div>
 		);
 	}
