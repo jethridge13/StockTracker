@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
 class TitleBar extends Component {
+
+	renderTitle() {
+		if (this.props.title) {
+			return (
+				<span className={this.props.className}>
+					{this.props.title}
+				</span>
+			);
+		}
+		return <span className={this.props.className}></span>
+	}
 	
 	render() {
 		return (
 			<div>
-				<span className={this.props.className}>
-					{this.props.title}
-				</span>
+				{this.renderTitle()}
 				<button className="moveCard icons-arrows"></button>
 			</div>
 		);
@@ -20,11 +29,12 @@ class Graph extends Component {
 	// TODO Load card before data requested then update when data available
 	constructor(props) {
 		super(props);
-		this.state = {}
 		if (props.data) {
-			this.state.data = props.data;
+			this.state = {
+				data: props.data,
+			}
 		} else {
-			this.state.data = null;
+			this.state = {};
 		}
 	}
 
@@ -51,11 +61,40 @@ class CardControl extends Component {
 	}
 }
 
-class Card extends Component {
-	
+class CardInput extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			count: 0,
+			inputs: [],
+		}
+	}
+
 	render() {
-		let title = 'Title';
+		return (
+			<div className="cardInputBase">
+				<div className="cardInputs">
+					<input type="text"></input>
+				</div>
+			</div>
+		);
+	}
+}
+
+class CardInputField extends Component {
+
+	render() {
+		return (
+			<div></div>
+		);
+	}
+}
+
+class Card extends Component {
+	constructor(props) {
+		super(props);
 		// EXAMPLE DATA ONLY
+
 		const data = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 			datasets: [
@@ -82,10 +121,30 @@ class Card extends Component {
 				}
 			]
 		};
+		// EXAMPLE TITLE ONLY
+		const title = 'Title';
+		/*
+		this.state = {
+			title: title,
+			data: data,
+		}
+		*/
+		this.state = {}
+	}
+
+	getGraphOrInput() {
+		if (this.state.data) {
+			return <Graph title={this.state.title} data={this.state.data}/>
+		} else {
+			return <CardInput />
+		}
+	}
+	
+	render() {
 		return (
 			<div className="cardBase">
-				<TitleBar className="title" title={title}/>
-				<Graph title={title} data={data}/>
+				<TitleBar className="title" title={this.state.title}/>
+				{this.getGraphOrInput()}
 				<CardControl cardId={this.props.cardId} onDelete={this.props.onDelete}/>
 			</div>
 		);

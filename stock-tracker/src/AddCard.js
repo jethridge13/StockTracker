@@ -33,7 +33,7 @@ class AddCard extends Component {
 
 	deleteCard(id) {
 		this.setState((prevState, props) => {
-			const index = prevState.cards.findIndex(x => x.id == id);
+			const index = prevState.cards.findIndex(x => x.id === id);
 			const arr = prevState.cards.slice();
 			arr.splice(index, 1);
 			return {
