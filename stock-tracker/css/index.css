@@ -1,16 +1,24 @@
 /* line 3, ../scss/_Card.scss */
+.addInputButton {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* line 10, ../scss/_Card.scss */
 .cardControlPanel button, .moveCard {
   min-width: 36px;
   min-height: 36px;
   margin: 4px;
 }
 
-/* line 9, ../scss/_Card.scss */
+/* line 16, ../scss/_Card.scss */
 .moveCard, .deleteCard {
   float: right;
 }
 
-/* line 13, ../scss/_Card.scss */
+/* line 20, ../scss/_Card.scss */
 .cardBase {
   margin: 1px;
   padding: 1px;
@@ -20,12 +28,12 @@
   min-width: 25%;
 }
 
-/* line 22, ../scss/_Card.scss */
+/* line 29, ../scss/_Card.scss */
 .cardControlPanel {
   min-height: 30px;
 }
 
-/* line 26, ../scss/_Card.scss */
+/* line 33, ../scss/_Card.scss */
 .cardInputBase {
   margin: 3px;
   padding: 1px;
@@ -36,20 +44,21 @@
   min-height: 250px;
 }
 
-/* line 36, ../scss/_Card.scss */
+/* line 43, ../scss/_Card.scss */
 .cardInputs input {
   width: 100%;
 }
 
-/* line 40, ../scss/_Card.scss */
+/* line 47, ../scss/_Card.scss */
 .cardInputs {
   margin: auto;
-  width: 65%;
+  width: 75%;
   padding: 10px;
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
-/* line 47, ../scss/_Card.scss */
+/* line 55, ../scss/_Card.scss */
 .graph {
   margin: 3px;
   padding: 1px;
@@ -60,7 +69,7 @@
   min-height: 250px;
 }
 
-/* line 57, ../scss/_Card.scss */
+/* line 65, ../scss/_Card.scss */
 .title {
   padding-top: 6px;
   text-align: center;
@@ -68,18 +77,19 @@
   width: 100%;
 }
 
-/* line 64, ../scss/_Card.scss */
+/* line 72, ../scss/_Card.scss */
 input[type=text] {
-  padding: 10px 10px;
   border: none;
   border-bottom: 2px solid black;
   background-color: #F0F0F0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-/* line 74, ../scss/_Card.scss */
+/* line 83, ../scss/_Card.scss */
 input[type=text]:focus {
   border: 3px solid #555;
 }

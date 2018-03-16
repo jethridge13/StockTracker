@@ -70,11 +70,26 @@ class CardInput extends Component {
 		}
 	}
 
+	addInputHandler() {
+		this.setState((prevState, props) => {
+			return {
+				inputs: [...prevState.inputs, { id: prevState.count }],
+				count: prevState.count + 1,
+			}
+		});
+	}
+
 	render() {
 		return (
 			<div className="cardInputBase">
 				<div className="cardInputs">
-					<input type="text"></input>
+					{
+						this.state.inputs.map((item) => (
+							<CardInputField key={item.id} />
+						))
+					}
+					<button className="addInputButton"
+					onClick={() => this.addInputHandler()}>Add Input</button>
 				</div>
 			</div>
 		);
@@ -82,10 +97,13 @@ class CardInput extends Component {
 }
 
 class CardInputField extends Component {
+	// TODO Add delete button to side of input
 
 	render() {
 		return (
-			<div></div>
+			<div>
+				<input type="text"></input>
+			</div>
 		);
 	}
 }
