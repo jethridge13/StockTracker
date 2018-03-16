@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,400,700i');
+/* TODO https://www.granneman.com/webdev/coding/css/fonts-and-formatting/serving-google-fonts-your-own-server-correctly/ */
 $cardBackground: #F0F0F0;
 
-.addInputButton {
-	width: 100%;
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.addInputButton, .submitCardButton {
+	width: 75%;
 	padding: 10px;
 	border-radius: 10px;
 	margin-top: 15px;
 }
 
-.cardControlPanel button, .moveCard {
+.cardControlPanel button, .moveCard, .deleteCard {
 	min-width: 36px;
 	min-height: 36px;
 	margin: 4px;
@@ -40,17 +46,36 @@ $cardBackground: #F0F0F0;
 	min-height: 250px;
 }
 
+.cardInputList {
+	width: 75%;
+	float: left;
+}
+
 .cardInputs input {
 	width: 100%;
 }
 
+.cardInputs input[type=text] {
+	/* TODO Use a variable here */
+	width: -webkit-calc(100% - 50px);
+	width: -moz-calc(100% - 50px);
+	width: calc(100% - 50px);
+	margin-top: 2px;
+	margin-bottom: 2px;
+	font-size: 14px;
+}
+
 .cardInputs {
 	margin: auto;
-	width: 75%;
 	padding: 10px;
 	margin-top: 10%;
 	margin-bottom: 10%;
 }
+
+.cardInputSettings {
+	min-width: 132px;
+}
+
 
 .graph {
 	margin: 3px;
@@ -60,6 +85,10 @@ $cardBackground: #F0F0F0;
 	background-color: $cardBackground;
 	min-width: 25%;
 	min-height: 250px;
+}
+
+.submitCardButton {
+	width: 100%;
 }
 
 .title {
@@ -82,4 +111,42 @@ input[type=text] {
 
 input[type=text]:focus {
 	border: 3px solid #555;
+}
+
+label {
+	width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+
+	.cardInputSettings {
+		float: right;
+		margin-left: 4px;
+		width: -webkit-calc(25% - 4px);
+		width: -moz-calc(25% - 4px);
+		width: calc(25% - 4px);
+	}
+
+	.cardInputs {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+
+	.addInputButton {
+		width: 100%;
+	}
+
+	.cardInputSettings {
+		width: 100%;
+	}
+
+	.cardInputList {
+		width: 100%;
+	}
+
+	.cardInputs {
+		width: 75%;
+	}
 }

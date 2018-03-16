@@ -1,24 +1,31 @@
-/* line 3, ../scss/_Card.scss */
-.addInputButton {
-  width: 100%;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,400,700i");
+/* TODO https://www.granneman.com/webdev/coding/css/fonts-and-formatting/serving-google-fonts-your-own-server-correctly/ */
+/* line 5, ../../scss/_Card.scss */
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* line 9, ../../scss/_Card.scss */
+.addInputButton, .submitCardButton {
+  width: 75%;
   padding: 10px;
   border-radius: 10px;
   margin-top: 15px;
 }
 
-/* line 10, ../scss/_Card.scss */
-.cardControlPanel button, .moveCard {
+/* line 16, ../../scss/_Card.scss */
+.cardControlPanel button, .moveCard, .deleteCard {
   min-width: 36px;
   min-height: 36px;
   margin: 4px;
 }
 
-/* line 16, ../scss/_Card.scss */
+/* line 22, ../../scss/_Card.scss */
 .moveCard, .deleteCard {
   float: right;
 }
 
-/* line 20, ../scss/_Card.scss */
+/* line 26, ../../scss/_Card.scss */
 .cardBase {
   margin: 1px;
   padding: 1px;
@@ -28,12 +35,12 @@
   min-width: 25%;
 }
 
-/* line 29, ../scss/_Card.scss */
+/* line 35, ../../scss/_Card.scss */
 .cardControlPanel {
   min-height: 30px;
 }
 
-/* line 33, ../scss/_Card.scss */
+/* line 39, ../../scss/_Card.scss */
 .cardInputBase {
   margin: 3px;
   padding: 1px;
@@ -44,21 +51,42 @@
   min-height: 250px;
 }
 
-/* line 43, ../scss/_Card.scss */
+/* line 49, ../../scss/_Card.scss */
+.cardInputList {
+  width: 75%;
+  float: left;
+}
+
+/* line 54, ../../scss/_Card.scss */
 .cardInputs input {
   width: 100%;
 }
 
-/* line 47, ../scss/_Card.scss */
+/* line 58, ../../scss/_Card.scss */
+.cardInputs input[type=text] {
+  /* TODO Use a variable here */
+  width: -webkit-calc(100% - 50px);
+  width: -moz-calc(100% - 50px);
+  width: calc(100% - 50px);
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+/* line 68, ../../scss/_Card.scss */
 .cardInputs {
   margin: auto;
-  width: 75%;
   padding: 10px;
   margin-top: 10%;
   margin-bottom: 10%;
 }
 
-/* line 55, ../scss/_Card.scss */
+/* line 75, ../../scss/_Card.scss */
+.cardInputSettings {
+  min-width: 132px;
+}
+
+/* line 80, ../../scss/_Card.scss */
 .graph {
   margin: 3px;
   padding: 1px;
@@ -69,7 +97,12 @@
   min-height: 250px;
 }
 
-/* line 65, ../scss/_Card.scss */
+/* line 90, ../../scss/_Card.scss */
+.submitCardButton {
+  width: 100%;
+}
+
+/* line 94, ../../scss/_Card.scss */
 .title {
   padding-top: 6px;
   text-align: center;
@@ -77,7 +110,7 @@
   width: 100%;
 }
 
-/* line 72, ../scss/_Card.scss */
+/* line 101, ../../scss/_Card.scss */
 input[type=text] {
   border: none;
   border-bottom: 2px solid black;
@@ -89,12 +122,53 @@ input[type=text] {
   padding-bottom: 10px;
 }
 
-/* line 83, ../scss/_Card.scss */
+/* line 112, ../../scss/_Card.scss */
 input[type=text]:focus {
   border: 3px solid #555;
 }
 
-/* line 1, ../scss/_AddCard.scss */
+/* line 116, ../../scss/_Card.scss */
+label {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  /* line 122, ../../scss/_Card.scss */
+  .cardInputSettings {
+    float: right;
+    margin-left: 4px;
+    width: -webkit-calc(25% - 4px);
+    width: -moz-calc(25% - 4px);
+    width: calc(25% - 4px);
+  }
+
+  /* line 130, ../../scss/_Card.scss */
+  .cardInputs {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 137, ../../scss/_Card.scss */
+  .addInputButton {
+    width: 100%;
+  }
+
+  /* line 141, ../../scss/_Card.scss */
+  .cardInputSettings {
+    width: 100%;
+  }
+
+  /* line 145, ../../scss/_Card.scss */
+  .cardInputList {
+    width: 100%;
+  }
+
+  /* line 149, ../../scss/_Card.scss */
+  .cardInputs {
+    width: 75%;
+  }
+}
+/* line 1, ../../scss/_AddCard.scss */
 .addCardBase {
   margin: 1px;
   border-radius: 7px;
@@ -105,31 +179,31 @@ input[type=text]:focus {
 
 /* line 80, icons/*.png */
 .icons-sprite, .icons-arrows, .icons-delete, .icons-documents, .icons-plus, .icons-refresh {
-  background-image: url('../images/icons-sb5f1a26d50.png');
+  background-image: url('../../images/icons-sb5f1a26d50.png');
   background-repeat: no-repeat;
 }
 
-/* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-arrows {
   background-position: 0 0;
 }
 
-/* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-delete {
   background-position: 0 -32px;
 }
 
-/* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-documents {
   background-position: 0 -64px;
 }
 
-/* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-plus {
   background-position: 0 -96px;
 }
 
-/* line 84, ../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .icons-refresh {
   background-position: 0 -224px;
 }

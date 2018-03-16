@@ -51,6 +51,7 @@ class CardControl extends Component {
 
 	render() {
 		/* TODO Button Functionality */
+		// TODO Edit options button
 		return (
 			<div className="cardControlPanel">
 				<button className="icons-refresh"></button>
@@ -80,16 +81,20 @@ class CardInput extends Component {
 	}
 
 	render() {
+		// TODO Tabindex for switching between fields
 		return (
 			<div className="cardInputBase">
 				<div className="cardInputs">
-					{
-						this.state.inputs.map((item) => (
-							<CardInputField key={item.id} />
-						))
-					}
+					<CardInputSettings />
+					<div className="cardInputList">
+						{
+							this.state.inputs.map((item) => (
+								<CardInputField key={item.id} />
+							))
+						}
+					</div>
 					<button className="addInputButton"
-					onClick={() => this.addInputHandler()}>Add Input</button>
+					onClick={() => this.addInputHandler()}>Add Ticker</button>
 				</div>
 			</div>
 		);
@@ -102,7 +107,36 @@ class CardInputField extends Component {
 	render() {
 		return (
 			<div>
-				<input type="text"></input>
+				<input type="text" placeholder="Stock Ticker"></input>
+				<button className="deleteCard icons-delete"></button>
+			</div>
+		);
+	}
+}
+
+class CardInputSettings extends Component {
+
+	render() {
+		let today = new Date();
+		let dd = today.getDate();
+		let mm = today.getMonth()+1;
+		const yyyy = today.getFullYear();
+		if (dd < 10) {
+			dd = `0${dd}`
+		}
+		if (mm < 10) {
+			mm = `0${mm}`
+		}
+		today = `${yyyy}-${mm}-${dd}`
+		return (
+			<div className="cardInputSettings">
+				<label>Start Date:
+					<input type="date" max={today} />
+				</label>
+				<label>End Date: 
+					<input type="date" value={today} max={today} />
+				</label>
+				<button className="submitCardButton">Submit</button>
 			</div>
 		);
 	}
@@ -140,14 +174,11 @@ class Card extends Component {
 			]
 		};
 		// EXAMPLE TITLE ONLY
-		const title = 'Title';
-		/*
+		const title = this.props.title;
+
 		this.state = {
 			title: title,
-			data: data,
 		}
-		*/
-		this.state = {}
 	}
 
 	getGraphOrInput() {

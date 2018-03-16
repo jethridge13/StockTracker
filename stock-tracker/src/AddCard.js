@@ -48,7 +48,11 @@ class AddCard extends Component {
 			<div>
 				{
 					this.state.cards.map((item) => (
-						<Card key={item.id} cardId={item.id} onDelete={this.deleteCard} />
+						<Card 
+						key={item.id} 
+						cardId={item.id} 
+						title="Add Card"
+						onDelete={this.deleteCard} />
 					))
 				}
 				<AddCardBase onClick={this.addCard}/>
