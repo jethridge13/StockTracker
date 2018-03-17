@@ -69,6 +69,7 @@ class CardInput extends Component {
 			count: 0,
 			inputs: [],
 		}
+		this.deleteInputHandler = this.deleteInputHandler.bind(this);
 	}
 
 	addInputHandler() {
@@ -76,6 +77,18 @@ class CardInput extends Component {
 			return {
 				inputs: [...prevState.inputs, { id: prevState.count }],
 				count: prevState.count + 1,
+			}
+		});
+	}
+
+	deleteInputHandler(id) {
+		this.setState((prevState, props) => {
+			const index = prevState.inputs.findIndex(x => x.id == id);
+			const arr = prevState.inputs.slice();
+			arr.splice(index, 1);
+			return {
+				inputs: arr,
+				count: prevState.count,
 			}
 		});
 	}
@@ -89,7 +102,10 @@ class CardInput extends Component {
 					<div className="cardInputList">
 						{
 							this.state.inputs.map((item) => (
-								<CardInputField key={item.id} />
+								<CardInputField 
+								key={item.id} 
+								id={item.id}
+								onDelete={this.deleteInputHandler} />
 							))
 						}
 					</div>
@@ -102,13 +118,15 @@ class CardInput extends Component {
 }
 
 class CardInputField extends Component {
-	// TODO Add delete button to side of input
+	// TODO Delete button functionality
 
 	render() {
 		return (
 			<div>
 				<input type="text" placeholder="Stock Ticker"></input>
-				<button className="deleteCard icons-delete"></button>
+				<button 
+				className="deleteCard icons-delete"
+				onClick={() => this.props.onDelete(this.props.id)}></button>
 			</div>
 		);
 	}
@@ -134,7 +152,7 @@ class CardInputSettings extends Component {
 					<input type="date" max={today} />
 				</label>
 				<label>End Date: 
-					<input type="date" value={today} max={today} />
+					<input type="date" defaultValue={today} max={today} />
 				</label>
 				<button className="submitCardButton">Submit</button>
 			</div>
