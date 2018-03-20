@@ -111,6 +111,8 @@ class CardInput extends Component {
 					</div>
 					<button className="addInputButton"
 					onClick={() => this.addInputHandler()}>Add Ticker</button>
+					<button className="submitCardButton"
+					onClick={this.props.clickHandler}>Submit</button>
 				</div>
 			</div>
 		);
@@ -154,7 +156,17 @@ class CardInputSettings extends Component {
 				<label>End Date: 
 					<input type="date" defaultValue={today} max={today} />
 				</label>
-				<button className="submitCardButton">Submit</button>
+			</div>
+		);
+	}
+}
+
+class LoadingCard extends Component {
+
+	render() {
+		return (
+			<div className="cardInputBase">
+				<img src={require("../images/loading.gif")} alt="Loading..." />
 			</div>
 		);
 	}
@@ -275,16 +287,30 @@ class Card extends Component {
 		const title = this.props.title;
 
 		this.state = {
+			state: 'waiting',
 			title: title,
 		}
+		this.submitHandler = this.submitHandler.bind(this);
 	}
 
 	getGraphOrInput() {
 		if (this.state.data) {
 			return <Graph title={this.state.title} data={this.state.data}/>
+		} else if (this.state.state === 'loading') {
+			return <LoadingCard />
 		} else {
-			return <CardInput />
+			return <CardInput clickHandler={this.submitHandler} />
 		}
+	}
+
+	submitHandler(inputs) {
+		alert(inputs);
+		this.setState((prevState, props) => {
+			return {
+				state: 'loading',
+				title: 'Loading...',
+			}
+		});
 	}
 	
 	render() {

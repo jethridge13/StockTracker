@@ -46,6 +46,12 @@ $cardBackground: #F0F0F0;
 	min-height: 250px;
 }
 
+.cardInputBase img {
+	position: relative;
+	top: 93px;
+	left: -webkit-calc(50% - 32px);
+}
+
 .cardInputList {
 	width: 75%;
 	float: left;
@@ -85,10 +91,6 @@ $cardBackground: #F0F0F0;
 	background-color: $cardBackground;
 	min-width: 25%;
 	min-height: 250px;
-}
-
-.submitCardButton {
-	width: 100%;
 }
 
 .title {
@@ -134,7 +136,7 @@ label {
 
 @media screen and (max-width: 600px) {
 
-	.addInputButton {
+	.addInputButton, .submitCardButton {
 		width: 100%;
 	}
 

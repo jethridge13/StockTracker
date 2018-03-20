@@ -1,5 +1,4 @@
 # Stock Tracker
----
 
 ## About
 

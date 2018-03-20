@@ -69,17 +69,24 @@
 }
 
 /* line 49, ../../scss/_Card.scss */
+.cardInputBase img {
+  position: relative;
+  top: 93px;
+  left: -webkit-calc(50% - 32px);
+}
+
+/* line 55, ../../scss/_Card.scss */
 .cardInputList {
   width: 75%;
   float: left;
 }
 
-/* line 54, ../../scss/_Card.scss */
+/* line 60, ../../scss/_Card.scss */
 .cardInputs input {
   width: 100%;
 }
 
-/* line 58, ../../scss/_Card.scss */
+/* line 64, ../../scss/_Card.scss */
 .cardInputs input[type=text] {
   /* TODO Use a variable here */
   width: -webkit-calc(100% - 50px);
@@ -90,7 +97,7 @@
   font-size: 14px;
 }
 
-/* line 68, ../../scss/_Card.scss */
+/* line 74, ../../scss/_Card.scss */
 .cardInputs {
   margin: auto;
   padding: 10px;
@@ -98,12 +105,12 @@
   margin-bottom: 10%;
 }
 
-/* line 75, ../../scss/_Card.scss */
+/* line 81, ../../scss/_Card.scss */
 .cardInputSettings {
   min-width: 132px;
 }
 
-/* line 80, ../../scss/_Card.scss */
+/* line 86, ../../scss/_Card.scss */
 .graph {
   margin: 3px;
   padding: 1px;
@@ -114,12 +121,7 @@
   min-height: 250px;
 }
 
-/* line 90, ../../scss/_Card.scss */
-.submitCardButton {
-  width: 100%;
-}
-
-/* line 94, ../../scss/_Card.scss */
+/* line 96, ../../scss/_Card.scss */
 .title {
   padding-top: 6px;
   text-align: center;
@@ -127,7 +129,7 @@
   width: 100%;
 }
 
-/* line 101, ../../scss/_Card.scss */
+/* line 103, ../../scss/_Card.scss */
 input[type=text] {
   border: none;
   border-bottom: 2px solid black;
@@ -139,18 +141,18 @@ input[type=text] {
   padding-bottom: 10px;
 }
 
-/* line 112, ../../scss/_Card.scss */
+/* line 114, ../../scss/_Card.scss */
 input[type=text]:focus {
   border: 3px solid #555;
 }
 
-/* line 116, ../../scss/_Card.scss */
+/* line 118, ../../scss/_Card.scss */
 label {
   width: 100%;
 }
 
 @media screen and (min-width: 600px) {
-  /* line 122, ../../scss/_Card.scss */
+  /* line 124, ../../scss/_Card.scss */
   .cardInputSettings {
     float: right;
     margin-left: 4px;
@@ -159,28 +161,28 @@ label {
     width: calc(25% - 4px);
   }
 
-  /* line 130, ../../scss/_Card.scss */
+  /* line 132, ../../scss/_Card.scss */
   .cardInputs {
     width: 85%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 137, ../../scss/_Card.scss */
-  .addInputButton {
+  /* line 139, ../../scss/_Card.scss */
+  .addInputButton, .submitCardButton {
     width: 100%;
   }
 
-  /* line 141, ../../scss/_Card.scss */
+  /* line 143, ../../scss/_Card.scss */
   .cardInputSettings {
     width: 100%;
   }
 
-  /* line 145, ../../scss/_Card.scss */
+  /* line 147, ../../scss/_Card.scss */
   .cardInputList {
     width: 100%;
   }
 
-  /* line 149, ../../scss/_Card.scss */
+  /* line 151, ../../scss/_Card.scss */
   .cardInputs {
     width: 75%;
   }
