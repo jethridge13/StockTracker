@@ -1,4 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,400,700i");
+/* line 1, ../../scss/_AddCard.scss */
+.addCardBase {
+  margin: 1px;
+  border-radius: 7px;
+  background-color: #F0F0F0;
+  width: 128px;
+  height: 128px;
+}
+
+/* line 1, ../../scss/_Animated.scss */
+.animated {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 /* TODO https://www.granneman.com/webdev/coding/css/fonts-and-formatting/serving-google-fonts-your-own-server-correctly/ */
 /* line 5, ../../scss/_Card.scss */
 * {
@@ -168,15 +185,6 @@ label {
     width: 75%;
   }
 }
-/* line 1, ../../scss/_AddCard.scss */
-.addCardBase {
-  margin: 1px;
-  border-radius: 7px;
-  background-color: #F0F0F0;
-  width: 128px;
-  height: 128px;
-}
-
 /* line 80, icons/*.png */
 .icons-sprite, .icons-arrows, .icons-delete, .icons-documents, .icons-plus, .icons-refresh {
   background-image: url('../../images/icons-sb5f1a26d50.png');

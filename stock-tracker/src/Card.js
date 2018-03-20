@@ -83,7 +83,7 @@ class CardInput extends Component {
 
 	deleteInputHandler(id) {
 		this.setState((prevState, props) => {
-			const index = prevState.inputs.findIndex(x => x.id == id);
+			const index = prevState.inputs.findIndex(x => x.id === id);
 			const arr = prevState.inputs.slice();
 			arr.splice(index, 1);
 			return {
@@ -118,14 +118,14 @@ class CardInput extends Component {
 }
 
 class CardInputField extends Component {
-	// TODO Delete button functionality
 
 	render() {
 		return (
 			<div>
-				<input type="text" placeholder="Stock Ticker"></input>
+				<input type="text" placeholder="Stock Ticker"
+				className="animated bounceIn"></input>
 				<button 
-				className="deleteCard icons-delete"
+				className="deleteCard icons-delete animated bounceIn"
 				onClick={() => this.props.onDelete(this.props.id)}></button>
 			</div>
 		);
@@ -164,30 +164,110 @@ class Card extends Component {
 	constructor(props) {
 		super(props);
 		// EXAMPLE DATA ONLY
-
 		const data = {
-			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-			datasets: [
+			"labels": [
+				"2018-02-20",
+				"2018-02-21",
+				"2018-02-22",
+				"2018-02-23",
+				"2018-02-26",
+				"2018-02-27",
+				"2018-02-28",
+				"2018-03-01",
+				"2018-03-02",
+				"2018-03-05",
+				"2018-03-06",
+				"2018-03-07",
+				"2018-03-08",
+				"2018-03-09",
+				"2018-03-12",
+				"2018-03-13",
+				"2018-03-14",
+				"2018-03-15",
+				"2018-03-16"
+			],
+			"datasets": [
 				{
-					label: 'My First dataset',
-					fill: false,
-					lineTension: 0.05,
-					backgroundColor: 'rgba(75,192,192,0.4)',
-					borderColor: 'rgba(75,192,192,1)',
-					borderCapStyle: 'butt',
-					borderDash: [],
-					borderDashOffset: 0.0,
-					borderJoinStyle: 'miter',
-					pointBorderColor: 'rgba(75,192,192,1)',
-					pointBackgroundColor: '#fff',
-					pointBorderWidth: 1,
-					pointHoverRadius: 5,
-					pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-					pointHoverBorderColor: 'rgba(220,220,220,1)',
-					pointHoverBorderWidth: 2,
-					pointRadius: 1,
-					pointHitRadius: 10,
-					data: [65, 59, 80, 81, 56, 55, 40]
+					"label": "GOOG",
+					"borderCapStyle": "butt",
+					"lineTension": 0.05,
+					"pointHoverRadius": 5,
+					"borderJoinStyle": "miter",
+					"backgroundColor": "rgba(75,192,192,0.4)",
+					"pointHitRadius": 10,
+					"pointHoverBorderColor": "rgba(220,220,220,1)",
+					"pointHoverBorderWidth": 2,
+					"pointBorderColor": "rgba(75,192,192,1)",
+					"pointBorderWidth": 1,
+					"pointRadius": 1,
+					"pointBackgroundColor": "#fff",
+					"fill": false,
+					"pointHoverBackgroundColor": "rgba(75,192,192,1)",
+					"data": [
+						1102.46,
+						1111.34,
+						1106.63,
+						1126.79,
+						1143.75,
+						1118.29,
+						1104.73,
+						1069.52,
+						1078.92,
+						1090.93,
+						1095.06,
+						1109.64,
+						1126,
+						1160.04,
+						1164.5,
+						1138.17,
+						1149.49,
+						1149.58,
+						1135.73
+					],
+					"borderDash": [],
+					"borderColor": "rgba(75,192,192,1)",
+					"borderDashOffset": 0.0
+				},
+				{
+					"label": "TSLA",
+					"borderCapStyle": "butt",
+					"lineTension": 0.05,
+					"pointHoverRadius": 5,
+					"borderJoinStyle": "miter",
+					"backgroundColor": "rgba(75,192,192,0.4)",
+					"pointHitRadius": 10,
+					"pointHoverBorderColor": "rgba(220,220,220,1)",
+					"pointHoverBorderWidth": 2,
+					"pointBorderColor": "rgba(75,192,192,1)",
+					"pointBorderWidth": 1,
+					"pointRadius": 1,
+					"pointBackgroundColor": "#fff",
+					"fill": false,
+					"pointHoverBackgroundColor": "rgba(75,192,192,1)",
+					"data": [
+						334.77,
+						333.3,
+						346.17,
+						352.05,
+						357.42,
+						350.99,
+						343.06,
+						330.93,
+						335.12,
+						333.35,
+						328.2,
+						332.3,
+						329.1,
+						327.17,
+						345.51,
+						341.84,
+						326.63,
+						325.6,
+						321.35
+					],
+					"borderDash": [],
+					"borderColor": "rgba(75,192,192,1)",
+					"borderDashOffset": 0.0
 				}
 			]
 		};
@@ -209,7 +289,7 @@ class Card extends Component {
 	
 	render() {
 		return (
-			<div className="cardBase">
+			<div className="cardBase animated zoomIn">
 				<TitleBar className="title" title={this.state.title}/>
 				{this.getGraphOrInput()}
 				<CardControl cardId={this.props.cardId} onDelete={this.props.onDelete}/>
