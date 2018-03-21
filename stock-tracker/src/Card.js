@@ -105,7 +105,8 @@ class CardInput extends Component {
 								<CardInputField 
 								key={item.id} 
 								id={item.id}
-								onDelete={this.deleteInputHandler} />
+								onDelete={this.deleteInputHandler}
+								changeHandler={this.props.changeHandler} />
 							))
 						}
 					</div>
@@ -124,8 +125,11 @@ class CardInputField extends Component {
 	render() {
 		return (
 			<div>
-				<input type="text" placeholder="Stock Ticker"
-				className="animated bounceIn"></input>
+				<input type="text"
+				itemID={this.props.id}
+				placeholder="Stock Ticker"
+				className="animated bounceIn"
+				onChange={() => this.props.changeHandler(this.props.id, event)}></input>
 				<button 
 				className="deleteCard icons-delete animated bounceIn"
 				onClick={() => this.props.onDelete(this.props.id)}></button>
@@ -291,6 +295,7 @@ class Card extends Component {
 			title: title,
 		}
 		this.submitHandler = this.submitHandler.bind(this);
+		this.changeHandler = this.changeHandler.bind(this);
 	}
 
 	getGraphOrInput() {
@@ -299,14 +304,25 @@ class Card extends Component {
 		} else if (this.state.state === 'loading') {
 			return <LoadingCard />
 		} else {
-			return <CardInput clickHandler={this.submitHandler} />
+			return <CardInput 
+					clickHandler={this.submitHandler}
+					changeHandler={this.changeHandler} />
 		}
 	}
 
-	submitHandler(inputs) {
-		alert(inputs);
+	changeHandler(id, event) {
+		console.log(id, event)
 		this.setState((prevState, props) => {
 			return {
+				...prevState,
+			}
+		});
+	}
+
+	submitHandler(inputs) {
+		this.setState((prevState, props) => {
+			return {
+				...prevState,
 				state: 'loading',
 				title: 'Loading...',
 			}
