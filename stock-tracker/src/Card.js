@@ -91,6 +91,7 @@ class CardInput extends Component {
 				count: prevState.count,
 			}
 		});
+		this.props.deleteHandler(id);
 	}
 
 	render() {
@@ -121,15 +122,23 @@ class CardInput extends Component {
 }
 
 class CardInputField extends Component {
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleChange(event) {
+		this.props.changeHandler(this.props.id, event.target.value);
+	}
 
 	render() {
 		return (
 			<div>
 				<input type="text"
-				itemID={this.props.id}
 				placeholder="Stock Ticker"
 				className="animated bounceIn"
-				onChange={() => this.props.changeHandler(this.props.id, event)}></input>
+				onChange={this.handleChange}></input>
+
 				<button 
 				className="deleteCard icons-delete animated bounceIn"
 				onClick={() => this.props.onDelete(this.props.id)}></button>
@@ -177,6 +186,7 @@ class LoadingCard extends Component {
 }
 
 class Card extends Component {
+	// TODO Move the delete input field handler here to delete old entries
 	constructor(props) {
 		super(props);
 		// EXAMPLE DATA ONLY
@@ -293,9 +303,11 @@ class Card extends Component {
 		this.state = {
 			state: 'waiting',
 			title: title,
+			tickers: {},
 		}
 		this.submitHandler = this.submitHandler.bind(this);
 		this.changeHandler = this.changeHandler.bind(this);
+		this.deleteHandler = this.deleteHandler.bind(this);
 	}
 
 	getGraphOrInput() {
@@ -306,20 +318,35 @@ class Card extends Component {
 		} else {
 			return <CardInput 
 					clickHandler={this.submitHandler}
-					changeHandler={this.changeHandler} />
+					changeHandler={this.changeHandler}
+					deleteHandler={this.deleteHandler} />
 		}
 	}
 
-	changeHandler(id, event) {
-		console.log(id, event)
+	changeHandler(id, value) {
 		this.setState((prevState, props) => {
+			let t = prevState.tickers;
+			t[id] = value;
 			return {
 				...prevState,
+				tickers: t,
 			}
 		});
 	}
 
-	submitHandler(inputs) {
+	deleteHandler(id) {
+		this.setState((prevState, props) => {
+			let prev = prevState;
+			delete prev['tickers'][id];
+			return {
+				...prev,
+			}
+		});
+	}
+
+	submitHandler() {
+		// TODO AJAX call to get graph
+		console.log(this.state);
 		this.setState((prevState, props) => {
 			return {
 				...prevState,
