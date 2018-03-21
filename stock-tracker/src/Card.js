@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
+const DEV_URL_BASE = 'http://localhost:5000';
+
 class TitleBar extends Component {
 
 	renderTitle() {
@@ -189,114 +191,6 @@ class Card extends Component {
 	// TODO Move the delete input field handler here to delete old entries
 	constructor(props) {
 		super(props);
-		// EXAMPLE DATA ONLY
-		const data = {
-			"labels": [
-				"2018-02-20",
-				"2018-02-21",
-				"2018-02-22",
-				"2018-02-23",
-				"2018-02-26",
-				"2018-02-27",
-				"2018-02-28",
-				"2018-03-01",
-				"2018-03-02",
-				"2018-03-05",
-				"2018-03-06",
-				"2018-03-07",
-				"2018-03-08",
-				"2018-03-09",
-				"2018-03-12",
-				"2018-03-13",
-				"2018-03-14",
-				"2018-03-15",
-				"2018-03-16"
-			],
-			"datasets": [
-				{
-					"label": "GOOG",
-					"borderCapStyle": "butt",
-					"lineTension": 0.05,
-					"pointHoverRadius": 5,
-					"borderJoinStyle": "miter",
-					"backgroundColor": "rgba(75,192,192,0.4)",
-					"pointHitRadius": 10,
-					"pointHoverBorderColor": "rgba(220,220,220,1)",
-					"pointHoverBorderWidth": 2,
-					"pointBorderColor": "rgba(75,192,192,1)",
-					"pointBorderWidth": 1,
-					"pointRadius": 1,
-					"pointBackgroundColor": "#fff",
-					"fill": false,
-					"pointHoverBackgroundColor": "rgba(75,192,192,1)",
-					"data": [
-						1102.46,
-						1111.34,
-						1106.63,
-						1126.79,
-						1143.75,
-						1118.29,
-						1104.73,
-						1069.52,
-						1078.92,
-						1090.93,
-						1095.06,
-						1109.64,
-						1126,
-						1160.04,
-						1164.5,
-						1138.17,
-						1149.49,
-						1149.58,
-						1135.73
-					],
-					"borderDash": [],
-					"borderColor": "rgba(75,192,192,1)",
-					"borderDashOffset": 0.0
-				},
-				{
-					"label": "TSLA",
-					"borderCapStyle": "butt",
-					"lineTension": 0.05,
-					"pointHoverRadius": 5,
-					"borderJoinStyle": "miter",
-					"backgroundColor": "rgba(75,192,192,0.4)",
-					"pointHitRadius": 10,
-					"pointHoverBorderColor": "rgba(220,220,220,1)",
-					"pointHoverBorderWidth": 2,
-					"pointBorderColor": "rgba(75,192,192,1)",
-					"pointBorderWidth": 1,
-					"pointRadius": 1,
-					"pointBackgroundColor": "#fff",
-					"fill": false,
-					"pointHoverBackgroundColor": "rgba(75,192,192,1)",
-					"data": [
-						334.77,
-						333.3,
-						346.17,
-						352.05,
-						357.42,
-						350.99,
-						343.06,
-						330.93,
-						335.12,
-						333.35,
-						328.2,
-						332.3,
-						329.1,
-						327.17,
-						345.51,
-						341.84,
-						326.63,
-						325.6,
-						321.35
-					],
-					"borderDash": [],
-					"borderColor": "rgba(75,192,192,1)",
-					"borderDashOffset": 0.0
-				}
-			]
-		};
 		// EXAMPLE TITLE ONLY
 		const title = this.props.title;
 
@@ -345,14 +239,34 @@ class Card extends Component {
 	}
 
 	submitHandler() {
-		// TODO AJAX call to get graph
-		console.log(this.state);
+		// TODO Update title on call finish
 		this.setState((prevState, props) => {
 			return {
 				...prevState,
 				state: 'loading',
 				title: 'Loading...',
 			}
+		});
+
+		let url = new URL(`${DEV_URL_BASE}/stocks?symbols=`);
+		for (let key in this.state.tickers) {
+			url += this.state.tickers[key] + ',';
+		}
+		fetch(url)
+		.then((response) => {
+			return response.json();
+		})
+		.then((json) => {
+			console.log(json);
+			this.setState((prevState, props) => {
+				return {
+					...prevState,
+					data: json,
+				}
+			});
+		})
+		.catch(function(error) {
+			console.log('ERROR', error);
 		});
 	}
 	

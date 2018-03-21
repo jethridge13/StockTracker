@@ -9,6 +9,7 @@
 ### Python prereqs
 * Flask
 * Flask-RESTful
+* Flask-CORS
 * requests
 
 ## Installing
