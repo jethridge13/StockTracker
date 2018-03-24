@@ -262,7 +262,7 @@ class Card extends Component {
 	}
 
 	submitHandler() {
-		if (!this.state.tickers.length > 0) {
+		if (!Object.keys(this.state.tickers).length > 0) {
 			const warningPopup = {
 				state: 'warning',
 				reason: 'Not enough tickers',
