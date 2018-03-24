@@ -15,7 +15,9 @@ cards can be displayed on one screen as well.
 
 The app was created using the create-react-app script. To install all
 npm dependencies, cd into the stock-tracker directory and run
+
 `npm install`
+
 If successful, all dependencies will have been installed.
 
 Note: animate.css must be installed under a local node_modules file
@@ -32,6 +34,11 @@ All of the following python modules can be installed with pip.
 * Flask-RESTful
 * Flask-CORS
 * requests
+
+### SCSS
+
+Compass is used to compile the scss files into one css file that is
+saved in the React css folder.
 
 ## Installing
 

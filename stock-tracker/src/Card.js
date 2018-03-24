@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Popup from './Popup';
 import { Line } from 'react-chartjs-2';
 
 const DEV_URL_BASE = 'http://localhost:5000';
@@ -219,7 +220,7 @@ class Card extends Component {
 		this.titleHandler = this.titleHandler.bind(this);
 	}
 
-	getGraphOrInput() {
+	cardState() {
 		if (this.state.data) {
 			return <Graph title={this.state.title} data={this.state.data}/>
 		} else if (this.state.state === 'loading') {
@@ -230,6 +231,12 @@ class Card extends Component {
 					changeHandler={this.changeHandler}
 					deleteHandler={this.deleteHandler} 
 					titleHandler={this.titleHandler} />
+		}
+	}
+
+	popup() {
+		if (this.state.popup) {
+			return <Popup status={this.state.popup} />
 		}
 	}
 
@@ -255,7 +262,19 @@ class Card extends Component {
 	}
 
 	submitHandler() {
-		// TODO Update title on call finish
+		if (!this.state.tickers.length > 0) {
+			const warningPopup = {
+				state: 'warning',
+				reason: 'Not enough tickers',
+			};
+			this.setState((prevState, props) => {
+				return {
+					...prevState,
+					popup: warningPopup,
+				}
+			});
+			return;
+		}
 		this.setState((prevState, props) => {
 			return {
 				...prevState,
@@ -275,10 +294,14 @@ class Card extends Component {
 		.then((json) => {
 			console.log(json);
 			this.setState((prevState, props) => {
+				let pendingTitle = 'New Card';
+				if (prevState.pendingTitle) {
+					pendingTitle = prevState.pendingTitle;
+				}
 				return {
 					...prevState,
 					data: json,
-					title: prevState.pendingTitle,
+					title: pendingTitle,
 				}
 			});
 		})
@@ -300,8 +323,9 @@ class Card extends Component {
 	render() {
 		return (
 			<div className="cardBase animated zoomIn">
+				{this.popup()}
 				<TitleBar className="title" title={this.state.title}/>
-				{this.getGraphOrInput()}
+				{this.cardState()}
 				<CardControl cardId={this.props.cardId} onDelete={this.props.onDelete}/>
 			</div>
 		);
