@@ -101,7 +101,7 @@ class CardInput extends Component {
 		return (
 			<div className="cardInputBase">
 				<div className="cardInputs">
-					<CardInputSettings />
+					<CardInputSettings titleHandler={this.props.titleHandler} />
 					<div className="cardInputList">
 						{
 							this.state.inputs.map((item) => (
@@ -150,6 +150,14 @@ class CardInputField extends Component {
 }
 
 class CardInputSettings extends Component {
+	constructor(props) {
+		super(props);
+		this.titleHandler = this.titleHandler.bind(this);
+	}
+
+	titleHandler(event) {
+		this.props.titleHandler(event.target.value);
+	}
 
 	render() {
 		let today = new Date();
@@ -165,6 +173,9 @@ class CardInputSettings extends Component {
 		today = `${yyyy}-${mm}-${dd}`
 		return (
 			<div className="cardInputSettings">
+				<input type="text"
+					placeholder="Card Title"
+					onChange={this.titleHandler}></input>
 				<label>Start Date:
 					<input type="date" max={today} />
 				</label>
@@ -197,11 +208,15 @@ class Card extends Component {
 		this.state = {
 			state: 'waiting',
 			title: title,
+			pendingTitle: '',
 			tickers: {},
+			startDate: '',
+			endDate: '',
 		}
-		this.submitHandler = this.submitHandler.bind(this);
 		this.changeHandler = this.changeHandler.bind(this);
 		this.deleteHandler = this.deleteHandler.bind(this);
+		this.submitHandler = this.submitHandler.bind(this);
+		this.titleHandler = this.titleHandler.bind(this);
 	}
 
 	getGraphOrInput() {
@@ -213,7 +228,8 @@ class Card extends Component {
 			return <CardInput 
 					clickHandler={this.submitHandler}
 					changeHandler={this.changeHandler}
-					deleteHandler={this.deleteHandler} />
+					deleteHandler={this.deleteHandler} 
+					titleHandler={this.titleHandler} />
 		}
 	}
 
@@ -262,11 +278,22 @@ class Card extends Component {
 				return {
 					...prevState,
 					data: json,
+					title: prevState.pendingTitle,
 				}
 			});
 		})
 		.catch(function(error) {
 			console.log('ERROR', error);
+		});
+	}
+
+	titleHandler(title) {
+		this.setState((prevState, props) => {
+			let prev = prevState;
+			prev['pendingTitle'] = title;
+			return {
+				...prev,
+			}
 		});
 	}
 	

@@ -110,7 +110,12 @@
   min-width: 132px;
 }
 
-/* line 86, ../../scss/_Card.scss */
+/* line 85, ../../scss/_Card.scss */
+.cardInputSettings input[type=text] {
+  width: 100%;
+}
+
+/* line 90, ../../scss/_Card.scss */
 .graph {
   margin: 3px;
   padding: 1px;
@@ -121,7 +126,7 @@
   min-height: 250px;
 }
 
-/* line 96, ../../scss/_Card.scss */
+/* line 100, ../../scss/_Card.scss */
 .title {
   padding-top: 6px;
   text-align: center;
@@ -129,7 +134,7 @@
   width: 100%;
 }
 
-/* line 103, ../../scss/_Card.scss */
+/* line 107, ../../scss/_Card.scss */
 input[type=text] {
   border: none;
   border-bottom: 2px solid black;
@@ -141,18 +146,18 @@ input[type=text] {
   padding-bottom: 10px;
 }
 
-/* line 114, ../../scss/_Card.scss */
+/* line 118, ../../scss/_Card.scss */
 input[type=text]:focus {
   border: 3px solid #555;
 }
 
-/* line 118, ../../scss/_Card.scss */
+/* line 122, ../../scss/_Card.scss */
 label {
   width: 100%;
 }
 
 @media screen and (min-width: 600px) {
-  /* line 124, ../../scss/_Card.scss */
+  /* line 128, ../../scss/_Card.scss */
   .cardInputSettings {
     float: right;
     margin-left: 4px;
@@ -161,28 +166,28 @@ label {
     width: calc(25% - 4px);
   }
 
-  /* line 132, ../../scss/_Card.scss */
+  /* line 136, ../../scss/_Card.scss */
   .cardInputs {
     width: 85%;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 139, ../../scss/_Card.scss */
+  /* line 143, ../../scss/_Card.scss */
   .addInputButton, .submitCardButton {
     width: 100%;
   }
 
-  /* line 143, ../../scss/_Card.scss */
+  /* line 147, ../../scss/_Card.scss */
   .cardInputSettings {
     width: 100%;
   }
 
-  /* line 147, ../../scss/_Card.scss */
+  /* line 151, ../../scss/_Card.scss */
   .cardInputList {
     width: 100%;
   }
 
-  /* line 151, ../../scss/_Card.scss */
+  /* line 155, ../../scss/_Card.scss */
   .cardInputs {
     width: 75%;
   }
