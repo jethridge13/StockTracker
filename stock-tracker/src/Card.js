@@ -218,6 +218,7 @@ class Card extends Component {
 		this.deleteHandler = this.deleteHandler.bind(this);
 		this.submitHandler = this.submitHandler.bind(this);
 		this.titleHandler = this.titleHandler.bind(this);
+		this.popupCloseHandler = this.popupCloseHandler.bind(this);
 	}
 
 	cardState() {
@@ -235,8 +236,14 @@ class Card extends Component {
 	}
 
 	popup() {
+		// TODO onClick event for when OK is clicked to update state
+		// and remove popup
 		if (this.state.popup) {
-			return <Popup status={this.state.popup} />
+			return (
+				<Popup 
+				status={this.state.popup}
+				popupCloseHandler={this.popupCloseHandler} />
+			);
 		}
 	}
 
@@ -259,6 +266,15 @@ class Card extends Component {
 				...prev,
 			}
 		});
+	}
+
+	popupCloseHandler() {
+		this.setState((prevState, props) => {
+			delete prevState['popup'];
+			return {
+				...prevState,
+			}
+		})
 	}
 
 	submitHandler() {
