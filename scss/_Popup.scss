@@ -1,3 +1,13 @@
+$errorBackground: #FFD2D2;
+$errorText: #D8000C;
+$errorButton: #E67878;
+$errorButtonBorder: #D95151;
+
+$warningBackground: #FEEFB3;
+$warningText: #9F6000;
+$warningButton: #E5CE74;
+$warningButtonBorder: #CCB03E;
+
 .error, .warning {
 	min-height: 200px;
 	top: 35px;
@@ -6,6 +16,7 @@
 	border: 1px solid black;
 	background-color: white;
 	border-radius: 7px;
+	border-width: 2px;
 	position: absolute;
 	z-index: 100;
 }
@@ -19,3 +30,24 @@
 	bottom: 0px;
 	min-width: 80px;
 }
+
+.error {
+	background-color: $errorBackground;
+	border-color: $errorText;
+}
+
+.error button {
+	background-color: $errorButton;
+	border-color: $errorButtonBorder;
+}
+
+.warning {
+	background-color: $warningBackground;
+	border-color: $warningText;
+}
+
+.warning button {
+	background-color: $warningButton;
+	border-color: $warningButtonBorder;
+}
+
