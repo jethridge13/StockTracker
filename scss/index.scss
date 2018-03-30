@@ -1,13 +1,38 @@
 @import "_AddCard";
 @import "_Animated";
 @import "_Card";
+@import "_Footer";
 @import "_Popup";
 @import "_sprites";
 
 * {
 	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
 }
+
+*:before, *:after {
+	box-sizing: border-box;
+}
+
+body, html {
+	margin: 0;
+	height: 100%;
+	position: relative;
+}
+
 
 button {
 	border-radius: 10px;
 }
+
+.content {
+	margin-bottom: 75px;
+}
+
+#root {
+	min-height: 100vh;
+	overflow: hidden;
+	display: block;
+	position: relative;
+}
+

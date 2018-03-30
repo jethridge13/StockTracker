@@ -38,7 +38,7 @@
 
 /* line 21, ../../scss/_Card.scss */
 .cardBase {
-  margin: 1px;
+  margin: 6px;
   padding: 1px;
   border: 1px solid black;
   border-radius: 7px;
@@ -187,6 +187,25 @@ label {
     width: 75%;
   }
 }
+/* line 1, ../../scss/_Footer.scss */
+.copyright {
+  text-align: center;
+  margin: auto;
+}
+
+/* line 6, ../../scss/_Footer.scss */
+.footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  min-height: 50px;
+  margin: 0;
+}
+
 /* line 11, ../../scss/_Popup.scss */
 .error, .warning {
   min-height: 200px;
@@ -267,12 +286,38 @@ label {
   background-position: 0 -224px;
 }
 
-/* line 7, ../../scss/index.scss */
+/* line 8, ../../scss/index.scss */
 * {
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 
-/* line 11, ../../scss/index.scss */
+/* line 13, ../../scss/index.scss */
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+/* line 17, ../../scss/index.scss */
+body, html {
+  margin: 0;
+  height: 100%;
+  position: relative;
+}
+
+/* line 24, ../../scss/index.scss */
 button {
   border-radius: 10px;
+}
+
+/* line 28, ../../scss/index.scss */
+.content {
+  margin-bottom: 75px;
+}
+
+/* line 32, ../../scss/index.scss */
+#root {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
 }

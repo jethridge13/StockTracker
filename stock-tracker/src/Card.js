@@ -55,6 +55,7 @@ class CardControl extends Component {
 	render() {
 		/* TODO Button Functionality */
 		// TODO Edit options button
+		// TODO On delete, do animation and then delete
 		return (
 			<div className="cardControlPanel">
 				<button className="icons-refresh"></button>
