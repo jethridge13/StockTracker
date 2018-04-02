@@ -1,9 +1,20 @@
+/* Variables */
+$main: #3B1FA3;
+$mainDark1: #260F7D;
+$mainDark2: #19075D;
+$mainLight1: #5B46A9;
+$mainLight2: #8565FF;
+
+/* Imports */
 @import "_AddCard";
 @import "_Animated";
 @import "_Card";
 @import "_Footer";
+@import "_Navbar";
 @import "_Popup";
 @import "_sprites";
+
+/* http://paletton.com/#uid=14c0u0ktltDdtDSlmuNvSmLH0gV */
 
 * {
 	font-family: 'Montserrat', sans-serif;

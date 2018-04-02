@@ -1,3 +1,5 @@
+/* Variables */
+/* Imports */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,400,700i");
 /* line 1, ../../scss/_AddCard.scss */
 .addCardBase {
@@ -200,7 +202,19 @@ label {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: gray;
+  background-color: #5B46A9;
+  color: white;
+  min-height: 50px;
+  margin: 0;
+}
+
+/* line 1, ../../scss/_Navbar.scss */
+.navbar {
+  right: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #260F7D;
   color: white;
   min-height: 50px;
   margin: 0;
@@ -286,35 +300,36 @@ label {
   background-position: 0 -224px;
 }
 
-/* line 8, ../../scss/index.scss */
+/* http://paletton.com/#uid=14c0u0ktltDdtDSlmuNvSmLH0gV */
+/* line 19, ../../scss/index.scss */
 * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
-/* line 13, ../../scss/index.scss */
+/* line 24, ../../scss/index.scss */
 *:before, *:after {
   box-sizing: border-box;
 }
 
-/* line 17, ../../scss/index.scss */
+/* line 28, ../../scss/index.scss */
 body, html {
   margin: 0;
   height: 100%;
   position: relative;
 }
 
-/* line 24, ../../scss/index.scss */
+/* line 35, ../../scss/index.scss */
 button {
   border-radius: 10px;
 }
 
-/* line 28, ../../scss/index.scss */
+/* line 39, ../../scss/index.scss */
 .content {
   margin-bottom: 75px;
 }
 
-/* line 32, ../../scss/index.scss */
+/* line 43, ../../scss/index.scss */
 #root {
   min-height: 100vh;
   overflow: hidden;
