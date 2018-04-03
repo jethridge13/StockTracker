@@ -339,7 +339,7 @@ class Card extends Component {
 	
 	render() {
 		return (
-			<div className="cardBase animated zoomIn">
+			<div className={`cardBase animated zoomIn ${this.props.className}`}>
 				{this.popup()}
 				<TitleBar className="title" title={this.state.title}/>
 				{this.cardState()}
