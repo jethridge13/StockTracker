@@ -119,7 +119,7 @@ label {
 	width: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
 
 	.cardInputSettings {
 		float: right;
@@ -134,7 +134,7 @@ label {
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
 	.addInputButton, .submitCardButton {
 		width: 100%;
@@ -150,5 +150,11 @@ label {
 
 	.cardInputs {
 		width: 75%;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.cardBase {
+		width: 800px;
 	}
 }

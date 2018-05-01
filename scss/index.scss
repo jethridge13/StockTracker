@@ -47,3 +47,16 @@ button {
 	position: relative;
 }
 
+@media screen and (min-width: 800px) {
+	.content {
+		width: 800px;
+		margin: auto;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.content {
+		width: 1600px;
+		margin: auto;
+	}
+}

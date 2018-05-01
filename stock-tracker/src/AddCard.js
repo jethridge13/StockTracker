@@ -66,8 +66,14 @@ class AddCard extends Component {
 
 	addCard() {
 		this.setState((prevState, props) => {
+			const newCard = { 
+				id: prevState.count,
+				x: 1,
+				y: 1,
+				w: 1,
+				h: 1, };
 			return {
-				cards: [...prevState.cards, { id: prevState.count }],
+				cards: [...prevState.cards, newCard],
 				count: prevState.count + 1,
 			}
 		});
@@ -98,9 +104,7 @@ class AddCard extends Component {
 							key={item.id} 
 							cardId={item.id} 
 							title="Add Card"
-							onDelete={this.deleteCard} 
-							w={1} 
-							h={1}
+							onDelete={this.deleteCard}
 							className={'react-draggable'} />
 						))
 					}
