@@ -6,3 +6,10 @@
 	width: 128px;
 	height: 128px;
 }
+
+.addCardContainer {
+	position: relative;
+	transition: height 200ms ease;
+	height: auto;
+	margin-top: 10px;
+}
