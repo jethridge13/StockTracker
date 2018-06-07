@@ -1,6 +1,6 @@
 .addCardBase {
 	display: inherit;
-	margin: 0 auto;
+	margin: 0 auto 64px auto;
 	border-radius: 7px;
 	background-color: #F0F0F0;
 	width: 128px;
@@ -8,8 +8,11 @@
 }
 
 .addCardContainer {
+	display: flex;
+	flex-wrap: wrap;
 	position: relative;
 	transition: height 200ms ease;
 	height: auto;
 	margin-top: 10px;
+	width: 100%;
 }
